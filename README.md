@@ -1,16 +1,16 @@
-Datatable Pagination Plugin with Bootstrap
-=====================
+<h1 style="font-size:22px;">Datatable Pagination Plugin with Bootstrap<h1 />
 
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large recordsets this functionality makes navigating to target pages more feasible.  
 
-<img src="/resources/screenshot1.png" alt="Screenshot" />
+<img src="/resources/screenshotA.png" alt="Screenshot" />
 <br />
 <br />
+It includes a bootstrap highlight look with intuitive icons.
 <br />
-<img src="/resources/screenshot2.png" alt="Screenshot" />
+<img src="/resources/screenshotB.png" alt="Screenshot" />
 <br />
 <br />
-Features:
+<h3>Features:</h3>
 <ul>
 <li>Uses glyphicons for image buttons</li>
 <li>Disables image buttons if they are not applicable</li>
@@ -19,7 +19,7 @@ Features:
 <li>Styles and icons can be overridden</li>
 </ul>
 
-Usage:
+<h3>Usage:</h3>
 Add the script to the page.  In your datatable declaration select this plugin:
 ```html
 <script>
@@ -29,13 +29,13 @@ $('#tbl').DataTable({
 });
 </script>
 ```
-or
+or add the conditionalPager option if you want the pager to be  hidden when all records are displayed on a single page:
 
 ```html
 <script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
-	conditionalPager: true,  //will hide pager if all records are shown
+	conditionalPager: true,
 	...
 });
 </script>			
@@ -55,9 +55,7 @@ To override icons you can use script or css:
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("glyphicon glyphicon-arrow-right");
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("fa fa-arrow-right");  //font-awesome
 </script>
-```
-css:
-```html
+
 <style>
 .paginate_button_next {
 	position: relative;
