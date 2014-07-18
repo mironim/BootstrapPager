@@ -22,37 +22,42 @@ Features:
 Usage:
 Add the script to the page.  In your datatable declaration select this plugin:
 ```html
-<pre>
 <script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
 	...
 });
 </script>
-</pre>
 ```
 or
 
+```html
+<script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
 	conditionalPager: true,  //will hide pager if all records are shown
 	...
 });
 </script>			
+```
 
 To override the plugin's default styles you do something like this:
+```html
 <style>
 .paginate_prefix{font-size:10px;}
  #tbl_paginate_textbox{width:50px !important;font-size:10px;}
 </style>
+```
 
 To override icons you can use script or css:
+```html
 <script>
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("glyphicon glyphicon-arrow-right");
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("fa fa-arrow-right");  //font-awesome
 </script>
-
+```
 css:
+```html
 <style>
 .paginate_button_next {
 	position: relative;
@@ -67,6 +72,7 @@ css:
 	color:#00FF00;
 }
 </style>
+```
 See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> for a list of content values
 
 
