@@ -11,9 +11,9 @@ It includes a bootstrap focus highlight with intuitive icons:
 
 <h3>Features:</h3>
 <ul>
-<li>Uses glyphicons for image buttons</li>
-<li>Disables image buttons if they are not applicable</li>
-<li>Properly handles  ALL (or -1) as a length</li>
+<li>Uses glyphicons for image buttons (a font built into bootstrap)</li>
+<li>Intuitive navigation images</li>
+<li>Properly handles  ALL (or -1) as a Length</li>
 <li>Option to hide pager if all records are shown</li>
 <li>Styles and icons can be overridden</li>
 </ul>
@@ -26,7 +26,7 @@ $('#tbl').DataTable({
 	...
 });
 ```
-The conditionalPager option will hide the pager if all records are currently displayed
+The ```conditionalPager``` option will hide the pager if all records are currently displayed
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
@@ -35,9 +35,9 @@ $('#tbl').DataTable({
 });
 ```
 
-In most cases that should be all you have to do to utilize this plugin.  
+It's as easy as that.
 
-<h3>Advanced Usage</h3>
+<h3>Advanced Usage:</h3>
 To override the plugin's default styles you do something like this:
 ```css
 .paginate_prefix{font-size:10px;}
@@ -69,7 +69,7 @@ You can also override icons with css:
 See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> for a list of font awesome content values
 
 
-<h3>Classes & IDs</h3>
+<h3>Classes & IDs:</h3>
 <table>
 <tr>
 <th>Class</th>
@@ -121,4 +121,4 @@ See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> fo
 </tr>
 </table>
 
-Replace {table_name} with the name of your table (i.e., #tbl_paginate_prefix{...})
+Replace ```{table_name}``` with the name of your table (i.e., ```#tbl_paginate_prefix{...}```)
