@@ -3,11 +3,11 @@ Datatable Pagination Plugin with Bootstrap
 
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large recordsets this functionality makes navigating to target pages more feasible.  
 
-<img src=/resources/screenshot1.png" alt="Screenshot" />
+<img src="/resources/screenshot1.png" alt="Screenshot" />
 <br />
 <br />
 <br />
-<img src=/resources/screenshot2.png" alt="Screenshot" />
+<img src="/resources/screenshot2.png" alt="Screenshot" />
 <br />
 <br />
 Features:
@@ -21,12 +21,16 @@ Features:
 
 Usage:
 Add the script to the page.  In your datatable declaration select this plugin:
+```html
+<pre>
 <script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
 	...
 });
-
+</script>
+</pre>
+```
 or
 
 $('#tbl').DataTable({
