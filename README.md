@@ -1,15 +1,15 @@
 ##Datatable Pagination Plugin with Bootstrap
-===
+=========
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large recordsets this functionality makes navigating to target pages more feasible.  
 
 An example of the plugin can be seen here:
-<img src="/resources/screenshotA.png" alt="Screenshot" />
-<br />
+<div><img src="/resources/screenshotA.png" alt="Screenshot" /></div>
+
 <br />
 It includes a bootstrap highlight look with intuitive icons:
 <br />
-<img src="/resources/screenshotB.png" alt="Screenshot" />
-<br />
+<div><img src="/resources/screenshotB.png" alt="Screenshot" /></div>
+
 <br />
 <h3>Features:</h3>
 <ul>
@@ -76,16 +76,55 @@ See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> fo
 
 
 <h3>Classes & IDs</h3>
-<ul>
-<li>.paginate_prefix, #{tbl_name}_paginate_prefix</li>
-<li>.paginate_suffix, #{tbl_name}_paginate_suffix</li>
-<li>.paginate_textbox, #{tbl_name}_paginate_textbox</li>
-<li>.paginate_button_first, #{tbl_name}_paginate_button_first</li>
-<li>.paginate_button_previous, #{tbl_name}_paginate_button_previous</li>
-<li>.paginate_button_next, #{tbl_name}_paginate_button_next</li>
-<li>.paginate_button_last, #{tbl_name}_paginate_button_last</li>
-<li>.paginate_button_first_disabled, #{tbl_name}_paginate_button_first_disabled</li>
-<li>.paginate_button_previous_disabled, #{tbl_name}_paginate_button_previous_disabled</li>
-<li>.paginate_button_next_disabled, #{tbl_name}_paginate_button_next_disabled</li>
-<li>.paginate_button_last_disabled, #{tbl_name}_paginate_button_last_disabled</li>
-</ul>
+<table>
+<tr>
+<th>Class</th>
+<th>ID</th>
+</tr>
+<tr>
+<td>.paginate_prefix</td>
+<td>#{tbl_name}_paginate_prefix</td>
+</tr>
+<tr>
+<td>.paginate_suffix</td>
+<td>#{tbl_name}_paginate_suffix</td>
+</tr>
+<tr>
+<td>.paginate_textbox</td>
+<td>#{tbl_name}_paginate_textbox</td>
+</tr>
+<tr>
+<td>.paginate_button_first</td>
+<td>#{tbl_name}_paginate_button_first</td>
+</tr>
+<tr>
+<td>.paginate_button_previous</td>
+<td>#{tbl_name}_paginate_button_previous</td>
+</tr>
+<tr>
+<td>.paginate_button_next</td>
+<td>#{tbl_name}_paginate_button_next</td>
+</tr>
+<tr>
+<td>.paginate_button_last</td>
+<td>#{tbl_name}_paginate_button_last</td>
+</tr>
+<tr>
+<td>.paginate_button_first_disabled</td>
+<td>#{tbl_name}_paginate_button_first_disabled</td>
+</tr>
+<tr>
+<td>.paginate_button_previous_disabled</td>
+<td>#{tbl_name}_paginate_button_previous_disabled</td>
+</tr>
+<tr>
+<td>.paginate_button_next_disabled</td>
+<td>#{tbl_name}_paginate_button_next_disabled</td>
+</tr>
+<tr>
+<td>.paginate_button_last_disabled</td>
+<td>#{tbl_name}_paginate_button_last_disabled</td>
+</tr>
+</table>
+
+Replace {table_name} with the name of your table (i.e., #tbl_paginate_prefix{...})
