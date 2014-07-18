@@ -1,5 +1,5 @@
 ##Datatable Pagination Plugin with Bootstrap
-This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large recordsets this functionality makes navigating to target pages more feasible.  
+This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large record sets this functionality makes navigating to target pages more feasible.
 
 An example of the plugin can be seen here:
 <div><img src="/resources/screenshotA.png" alt="Screenshot" /></div>
@@ -16,6 +16,7 @@ It includes a bootstrap focus highlight with intuitive icons:
 <li>Properly handles  ALL (or -1) as a Length</li>
 <li>Option to hide pager if all records are shown</li>
 <li>Styles and icons can be overridden</li>
+<li>Navigate on ENTER instead of every keystroke to conserve AJAX hits</li>
 </ul>
 
 <h3>Standard Usage:</h3>
@@ -26,7 +27,7 @@ $('#tbl').DataTable({
 	...
 });
 ```
-The ```conditionalPager``` option will hide the pager if all records are currently displayed
+The ```conditionalPager``` option will hide the pager if all records are currently displayed.  This is ```false``` by default.
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
