@@ -2,6 +2,7 @@
 $.fn.dataTableExt.oPagination.bootstrapInput = {
     "fnInit": function (oSettings, nPaging, fnCallbackDraw) {
 
+        //console.log(oSettings);
         if (oSettings.sTableId == '') {
             alert("DEVELOPER:  YOU MUST SET AN ID ON THE DATATABLE FOR THE PAGER TO WORK");
             return;
@@ -21,10 +22,10 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         var dLast = $("<span />");
 
 
-        nFirst.addClass("paginate_button first glyphicon glyphicon-step-backward");
-        nPrevious.addClass("paginate_button previous glyphicon glyphicon-chevron-left");
-        nNext.addClass("paginate_button next glyphicon glyphicon-chevron-right");
-        nLast.addClass("paginate_button last glyphicon glyphicon-step-forward");
+        nFirst.addClass("paginate_button paginate_button_first glyphicon glyphicon-step-backward");
+        nPrevious.addClass("paginate_button  paginate_button_previous glyphicon glyphicon-chevron-left");
+        nNext.addClass("paginate_button paginate_button_next glyphicon glyphicon-chevron-right");
+        nLast.addClass("paginate_button paginate_button_last glyphicon glyphicon-step-forward");
 
 
         //In case you want to use your own CSS to override my defaults font-size and widths
@@ -34,10 +35,10 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
 
 
         //these span icons will be hidden by default
-        dFirst.addClass("glyphicon glyphicon-step-backward hide");
-        dNext.addClass("glyphicon glyphicon-chevron-right hide");
-        dPrevious.addClass("glyphicon glyphicon-chevron-left hide");
-        dLast.addClass("glyphicon glyphicon-step-forward hide");
+        dFirst.addClass("paginate_button_first_disabled glyphicon glyphicon-step-backward hide");
+        dPrevious.addClass("paginate_button_previous glyphicon glyphicon-chevron-left hide");
+        dNext.addClass("paginate_button_next_disabled glyphicon glyphicon-chevron-right hide");
+        dLast.addClass("paginate_button_last glyphicon glyphicon-step-forward hide");
 
         //nFirst, nPrevious, nNext and nLast get some additional styling from the datatable css file:  .dataTables_wrapper .dataTables_paginate .paginate_button
         //Let's mimick that.  We don't want to use the same classes because they have a hover effect that shouldn't exist for disabled buttons.
@@ -47,13 +48,13 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             .css('padding-right', 14)
             .css('margin-left', 2);
 
-        dNext.css('width', 44)
+        dPrevious.css('width', 44)
             .css('text-align', 'center')
             .css('padding-left', 14)
             .css('padding-right', 14)
             .css('margin-left', 2);
 
-        dPrevious.css('width', 44)
+        dNext.css('width', 44)
             .css('text-align', 'center')
             .css('padding-left', 14)
             .css('padding-right', 14)
@@ -74,20 +75,21 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
 
 
         //Setting an id
-        //$(nPaging).attr('id', oSettings.sTableId + '_paginate');
+        $(nPaging).attr('id', oSettings.sTableId + '_paginate');
 
-        nFirst.attr('id', oSettings.sTableId + '_first');
-        nPrevious.attr('id', oSettings.sTableId + '_previous');
-        nNext.attr('id', oSettings.sTableId + '_next');
-        nLast.attr('id', oSettings.sTableId + '_last');
+        nFirst.attr('id', oSettings.sTableId + '_paginate_button_first');
+        nPrevious.attr('id', oSettings.sTableId + '_paginate_button_previous');
+        nNext.attr('id', oSettings.sTableId + '_paginate_button_next');
+        nLast.attr('id', oSettings.sTableId + '_paginate_button_last');
 
-        dFirst.attr('id', oSettings.sTableId + '_disabled_first');
-        dPrevious.attr('id', oSettings.sTableId + '_disabled_previous');
-        dNext.attr('id', oSettings.sTableId + '_disabled_next');
-        dLast.attr('id', oSettings.sTableId + '_disabled_last');
+        dFirst.attr('id', oSettings.sTableId + '_paginate_button_first_disabled');
+        dPrevious.attr('id', oSettings.sTableId + '_paginate_button_previous_disabled');
+        dNext.attr('id', oSettings.sTableId + '_paginate_button_next_disabled');
+        dLast.attr('id', oSettings.sTableId + '_paginate_button_last_disabled');
 
-        nTextbox.attr("id", oSettings.sTableId + "_pager_input");
-        nTextboxSuffix.attr('id', oSettings.sTableId + '_pager_input_suffix');
+        nTextbox.attr("id", oSettings.sTableId + "_paginate_textbox");
+        nTextboxSuffix.attr('id', oSettings.sTableId + '_paginate_suffix');
+        nTextboxPrefix.attr('id', oSettings.sTableId + '_paginate_prefix');
 
 
         //styling the input
@@ -187,18 +189,24 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         }
         var iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
 
+        var conditionalPager = false;
+        if (oSettings.oInit.conditionalPager != undefined) {
+            conditionalPager = oSettings.oInit.conditionalPager;
+        }
+
+        var pager = $("#" + oSettings.sTableId + '_paginate');
+        var textbox = $("#" + oSettings.sTableId + '_paginate_textbox');
+        var textboxSuffix = $("#" + oSettings.sTableId + '_paginate_suffix');
+        var nFirst = $('#' + oSettings.sTableId + '_paginate_button_first');
+        var nPrevious = $('#' + oSettings.sTableId + '_paginate_button_previous');
+        var nNext = $('#' + oSettings.sTableId + '_paginate_button_next');
+        var nLast = $('#' + oSettings.sTableId + '_paginate_button_last');
+        var dFirst = $('#' + oSettings.sTableId + '_paginate_button_first_disabled');
+        var dPrevious = $('#' + oSettings.sTableId + '_paginate_button_previous_disabled');
+        var dNext = $('#' + oSettings.sTableId + '_paginate_button_next_disabled');
+        var dLast = $('#' + oSettings.sTableId + '_paginate_button_last_disabled');
 
 
-        var textbox = $("#" + oSettings.sTableId + '_pager_input');
-        var textboxSuffix = $("#" + oSettings.sTableId + '_pager_input_suffix');
-        var nFirst = $('#' + oSettings.sTableId + '_first');
-        var nPrevious = $('#' + oSettings.sTableId + '_previous');
-        var nNext = $('#' + oSettings.sTableId + '_next');
-        var nLast = $('#' + oSettings.sTableId + '_last');
-        var dFirst = $('#' + oSettings.sTableId + '_disabled_first');
-        var dPrevious = $('#' + oSettings.sTableId + '_disabled_previous');
-        var dNext = $('#' + oSettings.sTableId + '_disabled_next');
-        var dLast = $('#' + oSettings.sTableId + '_disabled_last');
 
 
         if ((iCurrentPage == 1) && (iPages > 1)) {
@@ -213,7 +221,9 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dNext.addClass('hide');
             dLast.addClass('hide');
 
-            textbox.removeAttr('readonly');
+        textbox.removeAttr('readonly');
+        pager.show();
+           
         } else if ((iCurrentPage > 1) && (iCurrentPage < iPages)) {
             /* IN BETWEEN THE FIRST AND LAST PAGE */
             nFirst.removeClass('hide');
@@ -227,6 +237,8 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.addClass('hide');
 
             textbox.removeAttr('readonly');
+            pager.show();
+
         } else if ((iCurrentPage == iPages) && (iPages != 1)) {
             /* DISPLAYING THE LAST PAGE */
             nFirst.removeClass('hide');
@@ -240,6 +252,8 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.removeClass('hide');
 
             textbox.removeAttr('readonly');
+            pager.show();
+
         } else {
             /* DISPLAYING ALL RECORDS ON A SINGLE PAGE */
             nFirst.addClass('hide');
@@ -253,6 +267,9 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.removeClass('hide');
 
             textbox.attr('readonly', 'readonly');  //don't allow them to alter the number.  It should remain 1 of 1.
+            if (conditionalPager) {
+                pager.hide();
+            }
         }
 
 
