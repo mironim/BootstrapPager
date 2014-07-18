@@ -1,4 +1,4 @@
-##Datatable Pagination Plugin with Bootstrap
+Datatable Pagination Plugin with Bootstrap
 =========
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large recordsets this functionality makes navigating to target pages more feasible.  
 
@@ -22,7 +22,7 @@ It includes a bootstrap highlight look with intuitive icons:
 
 <h3>Usage:</h3>
 Add the script to the page.  In your datatable declaration select this plugin:
-```html
+```javscript
 <script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
@@ -32,7 +32,7 @@ $('#tbl').DataTable({
 ```
 or add the conditionalPager option if you want the pager to be  hidden when all records are displayed on a single page:
 
-```html
+```javascript
 <script>
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
@@ -43,7 +43,7 @@ $('#tbl').DataTable({
 ```
 
 To override the plugin's default styles you do something like this:
-```html
+```css
 <style>
 .paginate_prefix{font-size:10px;}
  #tbl_paginate_textbox{width:50px !important;font-size:10px;}
@@ -51,12 +51,16 @@ To override the plugin's default styles you do something like this:
 ```
 
 To override icons you can use script or css:
-```html
+```javascript
 <script>
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("glyphicon glyphicon-arrow-right");
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("fa fa-arrow-right");  //font-awesome
 </script>
+```
 
+or in CSS
+
+```css
 <style>
 .paginate_button_next {
 	position: relative;
