@@ -5,11 +5,10 @@ An example of the plugin can be seen here:
 <div><img src="/resources/screenshotA.png" alt="Screenshot" /></div>
 
 <br />
-It includes a bootstrap highlight look with intuitive icons:
+It includes a bootstrap focus highlight with intuitive icons:
 <br />
 <div><img src="/resources/screenshotB.png" alt="Screenshot" /></div>
 
-<br />
 <h3>Features:</h3>
 <ul>
 <li>Uses glyphicons for image buttons</li>
@@ -19,7 +18,7 @@ It includes a bootstrap highlight look with intuitive icons:
 <li>Styles and icons can be overridden</li>
 </ul>
 
-<h3>Usage:</h3>
+<h3>Standard Usage:</h3>
 Add the script to the page.  In your datatable declaration select this plugin:
 ```javascript
 $('#tbl').DataTable({
@@ -27,8 +26,7 @@ $('#tbl').DataTable({
 	...
 });
 ```
-or add the conditionalPager option if you want the pager to be  hidden when all records are displayed on a single page:
-
+The conditionalPager option will hide the pager if all records are currently displayed
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
@@ -37,19 +35,22 @@ $('#tbl').DataTable({
 });
 ```
 
+In most cases that should be all you have to do to utilize this plugin.  
+
+<h3>Advanced Usage</h3>
 To override the plugin's default styles you do something like this:
 ```css
 .paginate_prefix{font-size:10px;}
  #tbl_paginate_textbox{width:50px !important;font-size:10px;}
 ```
 
-To override icons you can use script or css:
+To override icons you can use script:
 ```javascript
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("glyphicon glyphicon-arrow-right");
 $("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("fa fa-arrow-right");  //font-awesome
 ```
 
-or in CSS
+You can also override icons with css:
 
 ```css
 .paginate_button_next {
