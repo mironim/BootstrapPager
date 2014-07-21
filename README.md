@@ -27,11 +27,13 @@ $('#tbl').DataTable({
 	...
 });
 ```
-The ```conditionalPager``` option will hide the pager if all records are currently displayed.  This is ```false``` by default.
+The ```toggleVisibility``` option will hide the pager if all records are currently displayed.  This is ```false``` by default.
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",
-	conditionalPager: true,
+	pagerSettings: {
+	   toggleVisibility: true
+	},
 	...
 });
 ```

@@ -189,9 +189,11 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         }
         var iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
 
-        var conditionalPager = false;
-        if (oSettings.oInit.conditionalPager != undefined) {
-            conditionalPager = oSettings.oInit.conditionalPager;
+        var toggleVisibility = false;
+        if ("pagerSettings" in oSettings.oInit) {
+            if ("toggleVisibility" in oSettings.oInit.pagerSettings) {
+                toggleVisibility = oSettings.oInit.pagerSettings.toggleVisibility;
+            }
         }
 
         var pager = $("#" + oSettings.sTableId + '_paginate');
@@ -267,7 +269,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.removeClass('hide');
 
             textbox.attr('readonly', 'readonly');  //don't allow them to alter the number.  It should remain 1 of 1.
-            if (conditionalPager) {
+            if (toggleVisibility) {
                 pager.hide();
             }
         }
