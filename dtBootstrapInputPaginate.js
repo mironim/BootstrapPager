@@ -187,7 +187,11 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         } else {
             iPages = Math.ceil((oSettings.fnRecordsDisplay()) / oSettings._iDisplayLength);
         }
-        var iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
+        var iCurrentPage = 0;
+        
+        if (iPages != 0) {
+            iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
+        }
 
         var toggleVisibility = false;
         if ("pagerSettings" in oSettings.oInit) {
@@ -195,6 +199,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
                 toggleVisibility = oSettings.oInit.pagerSettings.toggleVisibility;
             }
         }
+
 
         var pager = $("#" + oSettings.sTableId + '_paginate');
         var textbox = $("#" + oSettings.sTableId + '_paginate_textbox');
@@ -241,7 +246,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             textbox.removeAttr('readonly');
             pager.show();
 
-        } else if ((iCurrentPage == iPages) && (iPages != 1)) {
+        } else if ((iCurrentPage == iPages) && (iPages > 1)) {
             /* DISPLAYING THE LAST PAGE */
             nFirst.removeClass('hide');
             nPrevious.removeClass('hide');
