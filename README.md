@@ -27,7 +27,7 @@ $('#tbl').DataTable({
 	...
 });
 ```
-The ```toggleVisibility``` option will hide the pager if all records are currently displayed.  This is ```false``` by default.
+The ```toggleVisibility``` option will hide the pager if no results.  Otherwise it will show 0 of 0 pages.  This is ```false``` by default.
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapInput",

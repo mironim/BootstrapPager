@@ -274,7 +274,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.removeClass('hide');
 
             textbox.attr('readonly', 'readonly');  //don't allow them to alter the number.  It should remain 1 of 1.
-            if (toggleVisibility) {
+            if ((toggleVisibility) && (iPages == 0)) {
                 pager.hide();
             }
         }
