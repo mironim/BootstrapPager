@@ -2,7 +2,7 @@
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large record sets this functionality makes navigating to target pages more feasible.
 
 An example of the plugin can be seen here:
-<div><img src="/resources/screenshotA.png" alt="Screenshot" /></div>
+<div><img src="/resources/screenshotC.png" alt="Screenshot" /></div>
 
 <br />
 It includes a bootstrap focus highlight with intuitive icons:
@@ -40,7 +40,7 @@ $('#tbl').DataTable({
 
 It's as easy as that.
 
-<h3>Advanced Usage:</h3>
+<h3>Advanced Tweaks:</h3>
 To override the plugin's default styles you do something like this:
 ```css
 .paginate_prefix{font-size:10px;}
