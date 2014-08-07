@@ -2,12 +2,12 @@
 This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large record sets this functionality makes navigating to target pages more feasible.
 
 An example of the plugin can be seen here:
-<div><img src="/resources/screenshotC.png" alt="Screenshot" /></div>
+<div><img src="/resources/screenshotC.png" alt="Full Datatable Screenshot" /></div>
 
 <br />
 It includes a bootstrap focus highlight with intuitive icons:
 <br />
-<div><img src="/resources/screenshotB.png" alt="Screenshot" /></div>
+<div><img src="/resources/screenshotB.png" alt="Pager Screenshot" /></div>
 
 <h3>Features:</h3>
 <ul>
