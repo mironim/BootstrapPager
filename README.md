@@ -126,4 +126,4 @@ See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> fo
 
 Replace ```{table_name}``` with the name of your table (i.e., ```#tbl_paginate_prefix{...}```)
 
-A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio. Alternatively, you can <a href="/resources/dtBootstrapInputPaginate.zip?raw=true">download</a> the script.
+A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio. Alternatively, you can <a href="/resources/datatable.bootstrap.input.zip?raw=true">download</a> the script.
