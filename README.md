@@ -14,116 +14,70 @@ It includes a bootstrap focus highlight with intuitive icons:
 <li>Uses glyphicons for image buttons (a font built into bootstrap)</li>
 <li>Intuitive navigation images</li>
 <li>Properly handles  ALL (or -1) as a Length</li>
-<li>Option to hide pager if all records are shown</li>
+<li>Hides pager if no records found (instead of showing Page 0 of 0)</li>
 <li>Styles and icons can be overridden</li>
 <li>Navigate on ENTER instead of every keystroke to conserve AJAX hits</li>
+<li>Set options easily through the pagerSettings object</li>
 </ul>
 
 <h3>Standard Usage:</h3>
-Add the script to the page.  In your datatable declaration select this plugin:
+Add the script to the page. You can add it directly or use a bundle:
+```
+<script type="text/javascript" src="~/Scripts/jquery.dataTables.bootstrapPager.1.0.2.min.js"></script>
+```
+In your dataTable declaration select this plugin:
 ```javascript
 $('#tbl').DataTable({
-	pagingType: "bootstrapInput",
+	pagingType: "bootstrapPager",
 	...
 });
 ```
-The ```toggleVisibility``` option will hide the pager if no results.  Otherwise it will show 0 of 0 pages.  This is ```false``` by default.
+It’s as easy as that! If you want to adjust some settings add the pagerSettings object:
 ```javascript
 $('#tbl').DataTable({
-	pagingType: "bootstrapInput",
+	pagingType: "bootstrapPager",
 	pagerSettings: {
-	   toggleVisibility: true
+		textboxWidth: 70,
+        firstIcon: "",
+        previousIcon: "glyphicon glyphicon-arrow-left",
+        nextIcon: "glyphicon glyphicon-arrow-right",
+        lastIcon: ""
 	},
 	...
 });
 ```
+The above settings would enlarge the textbox, change the icons from chevrons to arrows, and remove the first and last buttons.
 
-It's as easy as that.
+A list of all the options:
+<ul>
+<li>textboxWidth</li>
+<li>firstIcon</li>
+<li>previousIcon</li>
+<li>nextIcon</li>
+<li>lastIcon</li>
+</ul>
 
-<h3>Advanced Tweaks:</h3>
-To override the plugin's default styles you do something like this:
-```css
-.paginate_prefix{font-size:10px;}
- #tbl_paginate_textbox{width:50px !important;font-size:10px;}
+If you are a FontAwesome fan simply reference the library and use those classes instead:
+
+```
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 ```
 
-To override icons you can use script:
+Then add the script:
 ```javascript
-$("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("glyphicon glyphicon-arrow-right");
-$("#tbl_paginate_button_next").removeClass("glyphicon glyphicon-chevron-right").addClass("fa fa-arrow-right");  //font-awesome
+<script>
+$('#tbl').DataTable({
+    pagingType: "bootstrapPager",
+    pagerSettings: {
+       firstIcon: "fa fa-angle-double-left fa-2x",
+       previousIcon: "fa fa-angle-left fa-2x",
+       nextIcon: "fa fa-angle-right fa-2x",
+       lastIcon: "fa  fa-angle-double-right fa-2x"
+    },
+    ...
+});
+</script>
 ```
 
-You can also override icons with css:
-
-```css
-.paginate_button_next {
-	position: relative;
-}
-
-.paginate_button_next:before {
-	content: " \f0A9";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-decoration: inherit;
-	color:#00FF00;
-}
-```
-See this site <a href="http://astronautweb.co/snippet/font-awesome/">site</a> for a list of font awesome content values
-
-
-<h3>Classes & IDs:</h3>
-<table>
-<tr>
-<th>Class</th>
-<th>ID</th>
-</tr>
-<tr>
-<td>.paginate_prefix</td>
-<td>#{tbl_name}_paginate_prefix</td>
-</tr>
-<tr>
-<td>.paginate_suffix</td>
-<td>#{tbl_name}_paginate_suffix</td>
-</tr>
-<tr>
-<td>.paginate_textbox</td>
-<td>#{tbl_name}_paginate_textbox</td>
-</tr>
-<tr>
-<td>.paginate_button_first</td>
-<td>#{tbl_name}_paginate_button_first</td>
-</tr>
-<tr>
-<td>.paginate_button_previous</td>
-<td>#{tbl_name}_paginate_button_previous</td>
-</tr>
-<tr>
-<td>.paginate_button_next</td>
-<td>#{tbl_name}_paginate_button_next</td>
-</tr>
-<tr>
-<td>.paginate_button_last</td>
-<td>#{tbl_name}_paginate_button_last</td>
-</tr>
-<tr>
-<td>.paginate_button_first_disabled</td>
-<td>#{tbl_name}_paginate_button_first_disabled</td>
-</tr>
-<tr>
-<td>.paginate_button_previous_disabled</td>
-<td>#{tbl_name}_paginate_button_previous_disabled</td>
-</tr>
-<tr>
-<td>.paginate_button_next_disabled</td>
-<td>#{tbl_name}_paginate_button_next_disabled</td>
-</tr>
-<tr>
-<td>.paginate_button_last_disabled</td>
-<td>#{tbl_name}_paginate_button_last_disabled</td>
-</tr>
-</table>
-
-Replace ```{table_name}``` with the name of your table (i.e., ```#tbl_paginate_prefix{...}```)
-
-A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio. Alternatively, you can <a href="/resources/datatable.bootstrap.input.zip?raw=true">download</a> the script.
+A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.
+Visit the author's site <a href="chadkuehn.com">chadkuehn.com</a>.
