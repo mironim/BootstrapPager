@@ -65,7 +65,6 @@ If you are a FontAwesome fan simply reference the library and use those classes 
 
 Then add the script:
 ```javascript
-<script>
 $('#tbl').DataTable({
     pagingType: "bootstrapPager",
     pagerSettings: {
@@ -76,8 +75,7 @@ $('#tbl').DataTable({
     },
     ...
 });
-</script>
 ```
 
 A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.
-Visit the author's site <a href="chadkuehn.com">chadkuehn.com</a>.
+Visit the author's site at <a href="chadkuehn.com">chadkuehn.com</a>.
