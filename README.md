@@ -79,5 +79,5 @@ $('#tbl').DataTable({
 });
 ```
 
-A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.  Alternatively, you can <a href="/ReadMe/bootstrapPager.zip?raw=true">download</a> the script itself.
+A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.  Alternatively, you can <a href="/ReadME/bootstrapPager.zip?raw=true">download</a> the script itself.
 Visit the author at <a href="http://chadkuehn.com">chadkuehn.com</a>.
