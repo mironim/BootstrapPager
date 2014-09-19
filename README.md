@@ -77,5 +77,5 @@ $('#tbl').DataTable({
 });
 ```
 
-A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.
-Visit the author's site at <a href="chadkuehn.com">chadkuehn.com</a>.
+A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.  Alternatively, you can <a href="https://github.com/chadkuehn/Datatable-Pagination-Plugin-with-Bootstrap/blob/master/datatable.bootstrap.input.js?raw=true">download</a> the script here:
+Visit the author at <a href="chadkuehn.com">chadkuehn.com</a>.
