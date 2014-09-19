@@ -23,7 +23,7 @@ It includes a bootstrap focus highlight with intuitive icons:
 <h3>Standard Usage:</h3>
 Add the script to the page. You can add it directly or use a bundle:
 ```
-<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.5.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.6.min.js"></script>
 ```
 In your dataTable declaration select this plugin:
 ```javascript
@@ -47,7 +47,7 @@ $('#tbl').DataTable({
 	...
 });
 ```
-The above settings would enlarge the textbox, change the icons from chevrons to arrows, and remove the first and last buttons.
+The above settings would enlarge the textbox, change the icons from chevrons to arrows, remove the first and last buttons, and make it so searching requires an ENTER press.
 
 A list of all the options:
 <ul>
