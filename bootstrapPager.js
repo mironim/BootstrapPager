@@ -1,5 +1,5 @@
 /*
- * boostrapPager.1.0.5.js
+ * bootstrapPager.1.0.6.js
  * An alternative pager for jQuery DataTables that utilizes a textbox for manual page entry, styled with boostrap and glyphicons
  *  
  * Licensed under MIT license
