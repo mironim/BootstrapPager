@@ -23,7 +23,7 @@ It includes a bootstrap focus highlight with intuitive icons:
 <h3>Standard Usage:</h3>
 Add the script to the page. You can add it directly or use a bundle:
 ```
-<script type="text/javascript" src="~/Scripts/jquery.dataTables.bootstrapPager.1.0.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.5.min.js"></script>
 ```
 In your dataTable declaration select this plugin:
 ```javascript
@@ -41,7 +41,8 @@ $('#tbl').DataTable({
         firstIcon: "",
         previousIcon: "glyphicon glyphicon-arrow-left",
         nextIcon: "glyphicon glyphicon-arrow-right",
-        lastIcon: ""
+        lastIcon: "",
+		searchOnEnter: true
 	},
 	...
 });
@@ -55,6 +56,7 @@ A list of all the options:
 <li>previousIcon</li>
 <li>nextIcon</li>
 <li>lastIcon</li>
+<li>searchOnEnter</li>
 </ul>
 
 If you are a FontAwesome fan simply reference the library and use those classes instead:

@@ -1,44 +1,75 @@
+/*
+ * boostrapPager.1.0.5.js
+ * An alternative pager for jQuery DataTables that utilizes a textbox for manual page entry, styled with boostrap and glyphicons
+ *  
+ * Licensed under MIT license
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright (c) 2014 Chad Kuehn
+ * Rewrite of a plugin by Allen Jardine: https://datatables.net/plug-ins/pagination/input
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a 
+ * copy of this software and associated documentation files (the "Software"), 
+ * to deal in the Software without restriction, including without limitation 
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of the Software, and to permit persons to whom the 
+ * Software is furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in 
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+ * IN THE SOFTWARE.
+ */
 
-$.fn.dataTableExt.oPagination.bootstrapInput = {
+
+$.fn.dataTableExt.oPagination.bootstrapPager = {
     "fnInit": function (oSettings, nPaging, fnCallbackDraw) {
 
-        //console.log(oSettings);
         if (oSettings.sTableId == '') {
-            alert("DEVELOPER:  YOU MUST SET AN ID ON THE DATATABLE FOR THE PAGER TO WORK");
+            $.error("Datatable requires an ID.");
             return;
         }
-
 
         var nFirst = $("<span />");
         var nPrevious = $("<span />");
         var nNext = $("<span />");
         var nLast = $("<span />");
-        var nTextbox = $('<input type="text" />');
-        var nTextboxPrefix = $("<span />");
-        var nTextboxSuffix = $("<span />");
+
+
+        var textbox = $('<input type="text" />');
+        var textboxPrefix = $('<span />');
+        var textboxSuffix = $("<span />");
         var dFirst = $("<span />");
         var dNext = $("<span />");
         var dPrevious = $("<span />");
         var dLast = $("<span />");
 
+        var pgLabel = $("<label />");
 
-        nFirst.addClass("paginate_button paginate_button_first glyphicon glyphicon-step-backward");
-        nPrevious.addClass("paginate_button  paginate_button_previous glyphicon glyphicon-chevron-left");
-        nNext.addClass("paginate_button paginate_button_next glyphicon glyphicon-chevron-right");
-        nLast.addClass("paginate_button paginate_button_last glyphicon glyphicon-step-forward");
+
+        nFirst.addClass("paginate_button paginate_button_first");
+        nPrevious.addClass("paginate_button  paginate_button_previous");
+        nNext.addClass("paginate_button paginate_button_next");
+        nLast.addClass("paginate_button paginate_button_last");
 
 
         //In case you want to use your own CSS to override my defaults font-size and widths
-        nTextboxPrefix.addClass("paginate_prefix");
-        nTextboxSuffix.addClass("paginate_suffix")
-        nTextbox.addClass("paginate_textbox");
+        textboxPrefix.addClass("paginate_prefix");
+        textboxSuffix.addClass("paginate_suffix")
+        textbox.addClass("paginate_textbox");
 
 
         //these span icons will be hidden by default
-        dFirst.addClass("paginate_button_first_disabled glyphicon glyphicon-step-backward hide");
-        dPrevious.addClass("paginate_button_previous glyphicon glyphicon-chevron-left hide");
-        dNext.addClass("paginate_button_next_disabled glyphicon glyphicon-chevron-right hide");
-        dLast.addClass("paginate_button_last glyphicon glyphicon-step-forward hide");
+        dFirst.addClass("paginate_button_first_disabled hide");
+        dPrevious.addClass("paginate_button_previous hide");
+        dNext.addClass("paginate_button_next_disabled hide");
+        dLast.addClass("paginate_button_last hide");
 
         //nFirst, nPrevious, nNext and nLast get some additional styling from the datatable css file:  .dataTables_wrapper .dataTables_paginate .paginate_button
         //Let's mimick that.  We don't want to use the same classes because they have a hover effect that shouldn't exist for disabled buttons.
@@ -66,11 +97,39 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             .css('padding-right', 14)
             .css('margin-left', 2);
 
+
+        nFirst.css('width', 44)
+           .css('text-align', 'center')
+           .css('padding-left', 14)
+           .css('padding-right', 14)
+           .css('margin-left', 2);
+
+        nPrevious.css('width', 44)
+            .css('text-align', 'center')
+            .css('padding-left', 14)
+            .css('padding-right', 14)
+            .css('margin-left', 2);
+
+        nNext.css('width', 44)
+            .css('text-align', 'center')
+            .css('padding-left', 14)
+            .css('padding-right', 14)
+            .css('margin-left', 2);
+
+        nLast.css('width', 44)
+            .css('text-align', 'center')
+            .css('padding-left', 14)
+            .css('padding-right', 14)
+            .css('margin-left', 2);
+
+
         //make the icons look disabled
         dFirst.css('color', '#CCC');
         dNext.css('color', '#CCC');
         dPrevious.css('color', '#CCC');
         dLast.css('color', '#CCC');
+
+        pgLabel.css("font-weight", "normal");
 
 
 
@@ -87,19 +146,21 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         dNext.attr('id', oSettings.sTableId + '_paginate_button_next_disabled');
         dLast.attr('id', oSettings.sTableId + '_paginate_button_last_disabled');
 
-        nTextbox.attr("id", oSettings.sTableId + "_paginate_textbox");
-        nTextboxSuffix.attr('id', oSettings.sTableId + '_paginate_suffix');
-        nTextboxPrefix.attr('id', oSettings.sTableId + '_paginate_prefix');
+        textbox.attr("id", oSettings.sTableId + "_paginate_textbox");
+        textboxSuffix.attr('id', oSettings.sTableId + '_paginate_suffix');
+        textboxPrefix.attr('id', oSettings.sTableId + '_paginate_prefix');
 
-
-        //styling the input
-        nTextbox.addClass("form-control")
-            .css("width", 70)
+        //styling the input.  Width set down lower as an option
+        textbox.addClass("form-control")
             .css("display", "inline");
 
 
-        nTextboxPrefix.html("Page")
-            .css('padding-right', 3);
+        textboxPrefix.css('padding-right', 3);
+
+
+        $(pgLabel).append(textboxPrefix)
+            .append(textbox)
+            .append(textboxSuffix);
 
 
         //adding the elements to the pager
@@ -107,9 +168,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             .append(dFirst)
             .append(nPrevious)
             .append(dPrevious)
-            .append(nTextboxPrefix)
-            .append(nTextbox)
-            .append(nTextboxSuffix)
+            .append(pgLabel)
             .append(nNext)
             .append(dNext)
             .append(nLast)
@@ -139,34 +198,14 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
 
 
         //only type numbers (no negatives)
-        nTextbox.keypress(function (e) {
+        textbox.keypress(function (e) {
             var e = window.event || e;
             var keyunicode = e.charCode || e.keyCode;
-            if (String.fromCharCode(keyunicode).match(/[^0-9]/g)) {
+            if (String.fromCharCode(keyunicode).match(/[^0-9]/g)) {   //ensuring numeric
                 return false;
             }
         });
 
-
-        //Type a number in the textbox followed by ENTER to navigate to that page
-        //If drag and dropping or copy and pasting you still need to press ENTER.
-        nTextbox.keyup(function (e) {
-            if (e.which != 13) {
-                return;
-            }
-
-            var iNewStart = oSettings._iDisplayLength * (this.value - 1);
-            if (iNewStart > oSettings.fnRecordsDisplay()) {
-
-                oSettings._iDisplayStart = (Math.ceil((oSettings.fnRecordsDisplay() - 1) /
-					oSettings._iDisplayLength) - 1) * oSettings._iDisplayLength;
-                fnCallbackDraw(oSettings);
-                return;
-            }
-
-            oSettings._iDisplayStart = iNewStart;
-            fnCallbackDraw(oSettings);
-        });
 
 
     },
@@ -188,21 +227,55 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             iPages = Math.ceil((oSettings.fnRecordsDisplay()) / oSettings._iDisplayLength);
         }
         var iCurrentPage = 0;
-        
+
         if (iPages != 0) {
             iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
         }
 
-        var toggleVisibility = false;
-        if ("pagerSettings" in oSettings.oInit) {
-            if ("toggleVisibility" in oSettings.oInit.pagerSettings) {
-                toggleVisibility = oSettings.oInit.pagerSettings.toggleVisibility;
+        var searchOnEnter = false;
+        var textboxWidth = 45;
+        var nextIcon = "glyphicon glyphicon-chevron-right";
+        var previousIcon = "glyphicon glyphicon-chevron-left";
+        var firstIcon = "glyphicon glyphicon-step-backward";
+        var lastIcon = "glyphicon glyphicon-step-forward";
+
+        var ps;
+        for (var prop in oSettings.oInit) {
+            if (prop.toUpperCase() == "PAGERSETTINGS") {
+                ps = oSettings.oInit[prop];
+                break;
+            }
+        }
+        if (ps) {
+            for (var prop in ps) {
+                var val = ps[prop];
+                switch (prop.toUpperCase()) {
+                    case "TEXTBOXWIDTH":
+                        textboxWidth = val;
+                        break;
+                    case "NEXTICON":
+                        nextIcon = val;
+                        break;
+                    case "PREVIOUSICON":
+                        previousIcon = val;
+                        break;
+                    case "FIRSTICON":
+                        firstIcon = val;
+                        break;
+                    case "LASTICON":
+                        lastIcon = val;
+                        break;
+                    case "SEARCHONENTER":
+                        searchOnEnter = val;
+                        break;
+                }
             }
         }
 
 
         var pager = $("#" + oSettings.sTableId + '_paginate');
         var textbox = $("#" + oSettings.sTableId + '_paginate_textbox');
+        var textboxPrefix = $("#" + oSettings.sTableId + '_paginate_prefix');
         var textboxSuffix = $("#" + oSettings.sTableId + '_paginate_suffix');
         var nFirst = $('#' + oSettings.sTableId + '_paginate_button_first');
         var nPrevious = $('#' + oSettings.sTableId + '_paginate_button_previous');
@@ -212,6 +285,62 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
         var dPrevious = $('#' + oSettings.sTableId + '_paginate_button_previous_disabled');
         var dNext = $('#' + oSettings.sTableId + '_paginate_button_next_disabled');
         var dLast = $('#' + oSettings.sTableId + '_paginate_button_last_disabled');
+
+
+        textbox.css("width", textboxWidth);
+
+        if (firstIcon == "") {
+            nFirst.hide();
+            dFirst.hide();
+        } else {
+            nFirst.addClass(firstIcon);
+            dFirst.addClass(firstIcon);
+        }
+        if (nextIcon == "") {
+            nNext.hide();
+            dNext.hide();
+        } else {
+            nNext.addClass(nextIcon);
+            dNext.addClass(nextIcon);
+        }
+        if (previousIcon == "") {
+            nPrevious.hide();
+            dPrevious.hide();
+        } else {
+            nPrevious.addClass(previousIcon);
+            dPrevious.addClass(previousIcon);
+        }
+        if (lastIcon == "") {
+            nLast.hide();
+            dLast.hide();
+        } else {
+            nLast.addClass(lastIcon);
+            dLast.addClass(lastIcon);
+        }
+
+
+        //Type a number in the textbox followed by ENTER to navigate to that page
+        //If drag and dropping or copy and pasting you still need to press ENTER.
+        textbox.off("keyup").on("keyup", (function (e) {
+            if (searchOnEnter) {
+                if (e.which != 13) {
+                    return;
+                }
+            }
+
+            var iNewStart = oSettings._iDisplayLength * (this.value - 1);
+            if (iNewStart > oSettings.fnRecordsDisplay()) {
+
+                oSettings._iDisplayStart = (Math.ceil((oSettings.fnRecordsDisplay() - 1) /
+					oSettings._iDisplayLength) - 1) * oSettings._iDisplayLength;
+                fnCallbackDraw(oSettings);
+                return;
+            }
+
+            oSettings._iDisplayStart = iNewStart;
+            fnCallbackDraw(oSettings);
+        }));
+
 
 
 
@@ -228,9 +357,9 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dNext.addClass('hide');
             dLast.addClass('hide');
 
-        textbox.removeAttr('readonly');
-        pager.show();
-           
+            textbox.removeAttr('readonly');
+            pager.show();
+
         } else if ((iCurrentPage > 1) && (iCurrentPage < iPages)) {
             /* IN BETWEEN THE FIRST AND LAST PAGE */
             nFirst.removeClass('hide');
@@ -274,7 +403,7 @@ $.fn.dataTableExt.oPagination.bootstrapInput = {
             dLast.removeClass('hide');
 
             textbox.attr('readonly', 'readonly');  //don't allow them to alter the number.  It should remain 1 of 1.
-            if ((toggleVisibility) && (iPages == 0)) {
+            if (iPages == 0) {
                 pager.hide();
             }
         }
