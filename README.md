@@ -23,7 +23,7 @@ It includes a bootstrap focus highlight with intuitive icons:
 <h3>Standard Usage:</h3>
 Add the script to the page. You can add it directly or use a bundle:
 ```
-<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.6.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.7.min.js"></script>
 ```
 In your dataTable declaration select this plugin:
 ```javascript

@@ -1,5 +1,5 @@
 /*
- * bootstrapPager.1.0.6.js
+ * bootstrapPager.1.0.7.js
  * An alternative pager for jQuery DataTables that utilizes a textbox for manual page entry, styled with Twitter Bootstrap and Glyphicons.
  *  
  * Licensed under MIT license
