@@ -20,7 +20,7 @@ Add the script to the page after the dependencies:
 <script type="text/javascript" src="~/Scripts/bootstrapPager.min.js"></script>
 ```
 
-**BASIC:**  
+**BASIC USAGE:**  
 In your dataTable declaration select this plugin:
 ```javascript
 $('#tbl').DataTable({
@@ -31,7 +31,7 @@ $('#tbl').DataTable({
 It’s as easy as that! 
 
 
-**ADVANCED:**  
+**ADVANCED USAGE:**  
 If you want to adjust some settings add the `pagerSettings` object:
 ```javascript
 $('#tbl').DataTable({
