@@ -1,5 +1,0 @@
-It says Page 1 of 0 records if no results.
-
-All the controls are grayed.
-
-Is this okay?

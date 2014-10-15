@@ -1,30 +1,21 @@
-##Datatable Pagination Plugin with Bootstrap
-This is a plugin that can be used with jquery Datatables.  It customizes the pagination of your table so that you can enter a number in a textbox.  When dealing with large record sets this functionality makes navigating to target pages more feasible.
+# BootstrapPager
 
-An example of the plugin can be seen here:
-<div><img src="/ReadME/screenshotC.png" alt="Full Datatable Screenshot" /></div>
+This is a plugin for jquery Datatables.  It customizes the pagination of your table so you can type the desired page number.  It is styled with bootstrap and Glyphicons and allows for many customizations.
 
-<br />
-It includes a bootstrap focus highlight with intuitive icons:
-<br />
-<div><img src="/ReadME/screenshotB.png" alt="Pager Screenshot" /></div>
+![Screenshot 1](https://raw.github.com/chadkuehn/bootstrapPager/master/asset/screenshot1.png)
 
-<h3>Features:</h3>
-<ul>
-<li>Uses glyphicons for image buttons (a font built into bootstrap)</li>
-<li>Intuitive navigation images</li>
-<li>Properly handles  ALL (or -1) as a Length</li>
-<li>Hides pager if no records found (instead of showing Page 0 of 0)</li>
-<li>Styles and icons can be overridden</li>
-<li>Navigate on ENTER instead of every keystroke to conserve AJAX hits</li>
-<li>Set options easily through the pagerSettings object</li>
-</ul>
+![Screenshot 2](https://raw.github.com/chadkuehn/bootstrapPager/master/asset/screenshot2.png)
 
-<h3>Standard Usage:</h3>
-Add the script to the page. You can add it directly or use a bundle:
+## Getting Started
+Download the [archive](https://github.com/chadkuehn/BootstrapPager/releases/latest) or install the [nuget](https://www.nuget.org/packages/DatatablePaginateBootstrap/).
+
+Add the script to the page  after a jQuery reference:
+
+```html
+<script type="text/javascript" src="~/Scripts/bootstrapPager.min.js"></script>
 ```
-<script type="text/javascript" src="~/Scripts/bootstrapPager.1.0.7.min.js"></script>
-```
+## Usage
+**BASIC:**  
 In your dataTable declaration select this plugin:
 ```javascript
 $('#tbl').DataTable({
@@ -32,7 +23,11 @@ $('#tbl').DataTable({
 	...
 });
 ```
-It’s as easy as that! If you want to adjust some settings add the pagerSettings object:
+It’s as easy as that! 
+
+
+**ADVANCED:**  
+If you want to adjust some settings add the pagerSettings object:
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapPager",
@@ -49,23 +44,8 @@ $('#tbl').DataTable({
 ```
 The above settings would enlarge the textbox, change the icons from chevrons to arrows, remove the first and last buttons, and make it so searching requires an ENTER press.
 
-A list of all the options:
-<ul>
-<li>textboxWidth</li>
-<li>firstIcon</li>
-<li>previousIcon</li>
-<li>nextIcon</li>
-<li>lastIcon</li>
-<li>searchOnEnter</li>
-</ul>
-
 If you are a FontAwesome fan simply reference the library and use those classes instead:
 
-```
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-```
-
-Then add the script:
 ```javascript
 $('#tbl').DataTable({
     pagingType: "bootstrapPager",
@@ -79,5 +59,41 @@ $('#tbl').DataTable({
 });
 ```
 
-A <a href="https://www.nuget.org/packages/DatatablePaginateBoostrap/">nuget</a> exists for this script. It can be installed within Visual Studio.  Alternatively, you can <a href="/ReadME/bootstrapPager.zip?raw=true">download</a> the script itself.
-Visit the author at <a href="http://chadkuehn.com">chadkuehn.com</a>.
+## Features
+ - Uses glyphicons for image buttons (a font built into bootstrap)
+ - Intuitive navigation images
+ - Properly handles  ALL (or -1) as a Length
+ - Hides pager if no records found (instead of showing Page 0 of 0)
+ - Styles and icons can be overridden
+ - Navigate on ENTER instead of every keystroke to conserve AJAX hits
+ - Set options easily through the pagerSettings object
+
+## API
+**PagerSettings:**
+
+ - textboxWidth
+ - firstIcon
+ - previousIcon
+ - nextIcon
+ - lastIcon
+ - searchOnEnter
+
+## Dependencies
+ - jQuery (v1.64 or newer)
+ - jQuery DataTables (v1.9.0 or newer)
+ - Twitter Bootstrap (v3.0 or newer)
+
+## Support
+Found a bug or have a feature request? [Open an issue](https://github.com/chadkuehn/BootstrapPager/issues/new ).  
+ 
+## Author
+**Chad Kuehn** ([@ChadillacMan](https://twitter.com/ChadillacMan))  
+[http://chadkuehn.com](http://chadkuehn.com)
+
+## Copyright & License
+Copyright (c) 2014 Chad Kuehn  
+
+BootstrapPager is available under the MIT license. See the [LICENSE file][7.1]
+for more information.
+
+[7.1]: ./LICENSE.txt
