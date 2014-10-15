@@ -1,6 +1,6 @@
 # BootstrapPager
 
-This is a plugin for jquery Datatables.  It customizes the pagination of your table so you can type the desired page number.  It is styled with bootstrap and Glyphicons and allows for many customizations.
+This is a plugin for jQuery Datatables.  It customizes the pagination of your table so you can type the desired page number.  It is styled with bootstrap and Glyphicons and allows for many customizations.
 
 ![Screenshot 1](https://raw.github.com/chadkuehn/bootstrapPager/master/asset/screenshot1.png)
 
