@@ -14,12 +14,12 @@ This is a plugin for jquery Datatables.  It customizes the pagination of your ta
 ## Getting Started
 Download the [archive](https://github.com/chadkuehn/BootstrapPager/releases/latest) or install the [nuget](https://www.nuget.org/packages/DatatablePaginateBootstrap/).
 
-Add the script to the page after the dependencies
+Add the script to the page after the dependencies:
 
 ```html
 <script type="text/javascript" src="~/Scripts/bootstrapPager.min.js"></script>
 ```
-## Usage
+
 **BASIC:**  
 In your dataTable declaration select this plugin:
 ```javascript
