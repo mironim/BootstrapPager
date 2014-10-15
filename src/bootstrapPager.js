@@ -1,3 +1,11 @@
+/*
+ * JSModel
+ * https://github.com/chadkuehn/BootstrapPager
+ * Version: 1.0.8
+ *
+ * Copyright © 2014 Chad Kuehn (http://chadkuehn.com)
+ */
+ 
 $.fn.dataTableExt.oPagination.bootstrapPager = {
     "fnInit": function (oSettings, nPaging, fnCallbackDraw) {
 
