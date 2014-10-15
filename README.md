@@ -6,10 +6,15 @@ This is a plugin for jquery Datatables.  It customizes the pagination of your ta
 
 ![Screenshot 2](https://raw.github.com/chadkuehn/bootstrapPager/master/asset/screenshot2.png)
 
+## Dependencies
+ - jQuery (v1.64 or newer)
+ - jQuery DataTables (v1.9.0 or newer)
+ - Twitter Bootstrap (v3.0 or newer)
+
 ## Getting Started
 Download the [archive](https://github.com/chadkuehn/BootstrapPager/releases/latest) or install the [nuget](https://www.nuget.org/packages/DatatablePaginateBootstrap/).
 
-Add the script to the page  after a jQuery reference:
+Add the script to the page after the dependencies
 
 ```html
 <script type="text/javascript" src="~/Scripts/bootstrapPager.min.js"></script>
@@ -27,7 +32,7 @@ It’s as easy as that!
 
 
 **ADVANCED:**  
-If you want to adjust some settings add the pagerSettings object:
+If you want to adjust some settings add the `pagerSettings` object:
 ```javascript
 $('#tbl').DataTable({
 	pagingType: "bootstrapPager",
@@ -78,10 +83,7 @@ $('#tbl').DataTable({
  - lastIcon
  - searchOnEnter
 
-## Dependencies
- - jQuery (v1.64 or newer)
- - jQuery DataTables (v1.9.0 or newer)
- - Twitter Bootstrap (v3.0 or newer)
+
 
 ## Support
 Found a bug or have a feature request? [Open an issue](https://github.com/chadkuehn/BootstrapPager/issues/new ).  
