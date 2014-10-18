@@ -7,11 +7,11 @@ This is an extension script to jQuery Datatables.  It allows you to override the
 ![Screenshot 2](https://raw.github.com/chadkuehn/bootstrapPager/master/asset/screenshot2.png)
 
 ## Dependencies
- - jQuery (v1.64 or newer)
- - jQuery DataTables (v1.9.0 or newer)
- - Twitter Bootstrap (v3.0 or newer)
+ - [jQuery](https://github.com/jquery/jquery) (v1.64 or newer)
+ - [jQuery DataTables](https://github.com/DataTables/DataTables) (v1.9.0 or newer)
+ - [Twitter Bootstrap](https://github.com/twbs/bootstrap) (v3.0 or newer)
 
-## Getting Started
+## Usage
 Download the [archive](https://github.com/chadkuehn/BootstrapPager/releases/latest) or install the [nuget](https://www.nuget.org/packages/DatatablePaginateBootstrap/).
 
 Add the script to the page after the dependencies:
@@ -20,7 +20,7 @@ Add the script to the page after the dependencies:
 <script type="text/javascript" src="~/Scripts/bootstrapPager.min.js"></script>
 ```
 
-**BASIC USAGE:**  
+**BASIC:**  
 In your dataTable declaration select this plugin:
 ```javascript
 $('#tbl').DataTable({
@@ -31,7 +31,7 @@ $('#tbl').DataTable({
 It’s as easy as that! 
 
 
-**ADVANCED USAGE:**  
+**ADVANCED:**  
 If you want to adjust some settings add the `pagerSettings` object:
 ```javascript
 $('#tbl').DataTable({
