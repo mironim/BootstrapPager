@@ -1,7 +1,7 @@
 /*
  * JSModel
  * https://github.com/chadkuehn/BootstrapPager
- * Version: 1.0.8
+ * Version: 1.0.9
  *
  * Copyright © 2014 Chad Kuehn (http://chadkuehn.com)
  */
@@ -216,6 +216,7 @@ $.fn.dataTableExt.oPagination.bootstrapPager = {
         var previousIcon = "glyphicon glyphicon-chevron-left";
         var firstIcon = "glyphicon glyphicon-step-backward";
         var lastIcon = "glyphicon glyphicon-step-forward";
+		var pslang = '~ of ~ pages';
 
         var ps;
         for (var prop in oSettings.oInit) {
@@ -246,9 +247,14 @@ $.fn.dataTableExt.oPagination.bootstrapPager = {
                     case "SEARCHONENTER":
                         searchOnEnter = val;
                         break;
+			        case "LANGUAGE":
+                        pslang = val;
+                        break;
                 }
             }
         }
+		
+		
 
 
         var pager = $("#" + oSettings.sTableId + '_paginate');
@@ -263,6 +269,7 @@ $.fn.dataTableExt.oPagination.bootstrapPager = {
         var dPrevious = $('#' + oSettings.sTableId + '_paginate_button_previous_disabled');
         var dNext = $('#' + oSettings.sTableId + '_paginate_button_next_disabled');
         var dLast = $('#' + oSettings.sTableId + '_paginate_button_last_disabled');
+
 
 
         textbox.css("width", textboxWidth);
@@ -385,10 +392,14 @@ $.fn.dataTableExt.oPagination.bootstrapPager = {
                 pager.hide();
             }
         }
+		
+		
+		var arrlang = pslang.split('~');
+		textboxPrefix.html(arrlang[0]);
 
 
         //Updating the number of pages and the number in the textbox (if necessary)
-        textboxSuffix.html(" of " + ("" + iPages).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + " pages");  //adding commmas to large numbers
+        textboxSuffix.html(arrlang[1] + ("" + iPages).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + arrlang[2]);  //adding commmas to large numbers
         textbox.val(iCurrentPage);
     }
 };
