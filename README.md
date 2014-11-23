@@ -42,7 +42,8 @@ $('#tbl').DataTable({
         previousIcon: "glyphicon glyphicon-arrow-left",
         nextIcon: "glyphicon glyphicon-arrow-right",
         lastIcon: "",
-		searchOnEnter: true
+		searchOnEnter: true,
+		language: "Page ~ of ~ pages"
 	},
 	...
 });
@@ -71,6 +72,7 @@ $('#tbl').DataTable({
  - Hides pager if no records found (instead of showing Page 0 of 0)
  - Styles and icons can be overridden
  - Navigate on ENTER instead of every keystroke to conserve AJAX hits
+ - Alter the language (i.e., use páginas instead of pages)
  - Set options easily through the pagerSettings object
 
 ## API
