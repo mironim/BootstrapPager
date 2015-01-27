@@ -1,9 +1,9 @@
-/*
- * JSModel
+﻿/*
+ * Bootstrap Pager
  * https://github.com/chadkuehn/BootstrapPager
- * Version: 1.0.9
+ * Version: 1.1.0
  *
- * Copyright © 2014 Chad Kuehn (http://chadkuehn.com)
+ * Copyright (c) 2014 Chad Kuehn (chadkuehn.com)
  */
  
 $.fn.dataTableExt.oPagination.bootstrapPager = {
